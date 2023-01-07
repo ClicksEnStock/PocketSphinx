@@ -1,0 +1,85 @@
+{
+    "About": {
+        "Name": "PocketSphinx v0.1",
+        "Author": "Conceptgame",
+        "Copyright": "Copyright (C) 2013 Conceptgame",
+        "Comment": "Recognize voice based on a grammar or a statistical language model ",
+        "URL": "none",
+        "Help": "Help/PocketSphinx.chm",
+        "Identifier": "PSPH",
+		"Dependencies": ["sphinxbase.dll","pocketsphinx.dll"]
+    },
+    "ActionMenu": [
+		"Separator",
+        [0,"Initialize With Grammar"],
+		[1,"Initialize With Language"],
+		[2,"Start Voice Recognition"],
+		[3,"Stop Voice Recognition"]
+    ],
+    "ConditionMenu": [
+        [0,"Are Words Recognized?"],
+		[1,"Is initialized?"],
+		[2,"Is recording?"],
+		[3,"On error"]
+    ],
+    "ExpressionMenu": [
+        [0,"Get recognized words"],
+		[1,"Get last error"]
+    ],
+    "Actions": [
+        {
+            "Title": "Initialize with grammar (%0,%1,%2) at %3Hz with silence=%4ms",
+            "Parameters": [
+                ["Text","Acoustic model folder"],
+				["Text","Grammar file path"],
+				["Text","Dictionnary file path"],
+				["Integer","Recording Sample Rate"],
+				["Integer","Silence between utterance in ms"]
+            ]
+        },
+		{
+            "Title": "Initialize with language (%0,%1,%2) at %3Hz with silence=%4ms",
+            "Parameters": [
+                ["Text","Acoustic model folder"],
+				["Text","Statistical language model file path"],
+				["Text","Dictionnary file path"],
+				["Integer","Recording Sample Rate"],
+				["Integer","Silence between utterance in ms"]
+            ]
+        },
+		{
+            "Title": "Start voice recognition"
+        },
+		{
+            "Title": "Stop voice recognition"
+        }
+    ],
+    "Conditions": [
+        {
+            "Title": "%o : Are words recognized?",
+            "Triggered": false
+        },
+		{
+            "Title": "%o : Is initialized?",
+            "Triggered": false
+        },
+		{
+            "Title": "%o : Is recording?",
+            "Triggered": false
+        },
+		{
+            "Title": "%o : On error",
+            "Triggered": false
+        }
+    ],
+    "Expressions": [
+        {
+            "Title": "Words$(",
+            "Returns": "Text"
+        },
+		{
+            "Title": "LastError$(",
+            "Returns": "Text"
+        }
+    ]
+}
