@@ -114,3 +114,4 @@ UpgradeLog*.XML
 packages/
 
 
+.vs/Template/v16/Browse.VC.db
